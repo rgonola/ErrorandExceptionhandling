@@ -59,7 +59,7 @@ public class ApexLogger {
         }
         return ret;
     }
-
+    @Testvisible
     static Map<string, string> createErrorDetailMap(string recordId, string statusCode, string message){
         Map<string, string> ret = new Map<string, string>();
         ret.put('recordId', recordId);
