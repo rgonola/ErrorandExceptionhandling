@@ -3,6 +3,7 @@
     <fullName>framework</fullName>
     <types>
         <members>ApexLogger</members>
+        <members>ApexLoggerTest</members>
         <members>DataAccessManager</members>
         <name>ApexClass</name>
     </types>
