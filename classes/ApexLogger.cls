@@ -1,3 +1,10 @@
+/**
+ * @description       : 
+ * @author            : Raj Gonola 
+ * @group             : 
+ * @last modified on  : 11-07-2022
+ * @last modified by  : Raj Gonola 
+**/
 public class ApexLogger {
     
     public static void LogException(string className, string methodName, Exception e){
@@ -18,14 +25,15 @@ public class ApexLogger {
         }
     }
 
-    public static void LogDMLErrors(string className, string methodName, string dmlOperation, Database.Error[] errors){
+    public static Apex_Log__c LogDMLErrors(string className, string methodName, string dmlOperation, Database.Error[] errors,SObject rcd){
+        Apex_Log__c apexLog = new Apex_Log__c ();
         if (string.isNotBlank(className) && string.isNotBlank(methodName) && errors != null && errors.size() > 0){
-            Apex_Log__c apexLog = new Apex_Log__c (
-                Class_Name__c = className, 
-                Method_Name__c = methodName, 
-                DML_Operation__c = dmlOperation,
-                Date_Time_Stamp__c = Datetime.now()
-            );
+            
+            apexLog.Class_Name__c = className; 
+            apexLog.Method_Name__c = methodName;
+            apexLog.DML_Operation__c = dmlOperation;
+            apexLog.Date_Time_Stamp__c = Datetime.now();
+            
             List<Map<string, string>> errorDetails = new List<Map<string, string>>();
             for (Database.Error error : errors) {
                 Map<string, string> errorDetail = new Map<string, string>();
@@ -34,8 +42,9 @@ public class ApexLogger {
                 errorDetails.add(errorDetail);
             }
             apexLog.Error_Details__c  = Json.serialize(errorDetails);
-            insert apexLog;
+            apexLog.RecordData__c  = Json.serialize(rcd);
         }
+        return apexLog;
     }
 
     static List<Map<string, string>> extractErrorDetailsFromException(Exception e){
@@ -67,4 +76,5 @@ public class ApexLogger {
         ret.put('message', message);
         return ret;
     }
+    
 }
