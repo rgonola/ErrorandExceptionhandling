@@ -273,7 +273,6 @@
         <inlineHelpText>The name of the method that caught the error.</inlineHelpText>
         <label>Method Name</label>
         <required>false</required>
-        <length>131072</length>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -288,6 +287,7 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+        <length>131072</length>
    </fields>
     <label>Apex Log</label>
     <listViews>
