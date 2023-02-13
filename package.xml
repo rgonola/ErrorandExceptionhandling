@@ -16,6 +16,7 @@
         <members>Apex_Log__c.Exception_Stack_Trace__c</members>
         <members>Apex_Log__c.Exception_Type__c</members>
         <members>Apex_Log__c.Method_Name__c</members>
+        <members>Apex_Log__c.RecordData__c</members>
         <name>CustomField</name>
     </types>
     <types>
