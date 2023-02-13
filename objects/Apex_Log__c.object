@@ -276,6 +276,17 @@
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
+    
+    <fields>
+        <fullName>RecordData__c </fullName>
+        <description></description>
+        <externalId>false</externalId>
+        <inlineHelpText></inlineHelpText>
+        <label>Record Data</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+    </fields>
     <label>Apex Log</label>
     <listViews>
         <fullName>All</fullName>
